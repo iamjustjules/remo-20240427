@@ -1,0 +1,24 @@
+Homework
+
+- Objective Develop a Terraform setup that deploys identical resources across two different AWS regions using modular design principles. The resources include EC2 instances and DynamoDB tables.
+
+Step 1 Understand the Project Structure modules
+
+- Directory Contains reusable Terraform code for each type of resource.
+- ec2_instance Module for creating an EC2 instance.
+- dynamodb_table Module for creating a DynamoDB table.
+- Regional Directories (us-east-1 and eu-west-1) Each contains configuration files that use the modules to deploy resources specific to that region.
+
+Step 2 Create the Modules
+
+- EC2 Instance Module This should define how to create an EC2 instance, including necessary variables like AMI ID, instance type, and instance name.
+- DynamoDB Table Module This should outline the creation of a DynamoDB table with configurable parameters such as table name.
+
+Step 3 Configure Each Region
+
+- Each regional directory will have its own main.tf that calls the modules with parameters specific to that region, such as the AMI ID and table name.
+
+Step 4 Define the Variables and Outputs
+
+- Variables Each module should include variable definitions to accept inputs like AMI IDs and table names. You can also use terraform.tfvars if needed.
+- Outputs After deploying the resources, outputs should be configured to return essential information like EC2 instance IDs and DynamoDB table names.
